@@ -8,9 +8,9 @@ const unsplash = new Unsplash({
   secret: "93eca2da52d5fc2d52e5d1a5f041a4eb820433bf2e2405a4f2439858c1cdc902"
 });
 
-export const getItems = () => dispatch => {
+export const getImages = (keyword, page, per_page) => dispatch => {
   unsplash.search
-    .photos("dogs", 1, 30)
+    .photos(keyword, page, per_page)
     .then(toJson)
     .then(json =>
       dispatch({

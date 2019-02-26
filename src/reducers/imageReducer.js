@@ -1,6 +1,6 @@
 import { GET_IMAGES, IMAGES_LOADING } from "../actions/types";
 const initialState = {
-  images: [],
+  images: {},
   loading: false
 };
 
