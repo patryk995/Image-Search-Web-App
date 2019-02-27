@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Image from "./Image";
 import LoadingSpinner from "./LoadingSpinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export class ImagesGrid extends Component {
-  componentWillUpdate() {
-    console.log(this.props.image.images.results);
-  }
   render() {
     if (this.props.image.loading) {
       return <LoadingSpinner />;
@@ -15,12 +14,24 @@ export class ImagesGrid extends Component {
     if (this.props.image.images.results) {
       const images = this.props.image.images.results;
       if (this.props.image.images.total === 0) {
-        return <p>No images Found.</p>;
+        return (
+          <div className="py-5 text-center opacity-half m-auto">
+            <FontAwesomeIcon icon="sad-cry" size="3x" />
+            <p>
+              No images found.
+              <br />
+              Try again!
+            </p>
+          </div>
+        );
       } else {
         return (
           <div className="images-grid-container">
             <div className="images-top-line">
-              <p>{this.props.image.images.total} images found.</p>
+              <p>
+                On keyword <b>{this.props.image.keyword}</b>{" "}
+                {this.props.image.images.total} images found.
+              </p>
             </div>
             <div className="images-grid">
               {images.map(image => (
@@ -30,14 +41,14 @@ export class ImagesGrid extends Component {
           </div>
         );
       }
-    } else {
-      return (
-        <div>
-          <i class="far fa-images" /> <br />
-          <p>Empty List</p>
-        </div>
-      );
     }
+
+    return (
+      <div className="py-5 text-center opacity-half m-auto">
+        <FontAwesomeIcon icon="images" size="3x" />
+        <p>Empty Images List</p>
+      </div>
+    );
   }
 }
 ImagesGrid.propTypes = {

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { getImages } from "../../actions/imageActions";
 export class Search extends Component {
   state = {
@@ -8,7 +10,6 @@ export class Search extends Component {
   };
 
   onSubmit = () => {
-    console.log("clicked");
     this.props.getImages(this.state.keyword, 1, 30);
   };
   onChange = e => {
@@ -32,7 +33,7 @@ export class Search extends Component {
           onKeyPress={this.handleKeyPress}
         />
         <button id="searchSubmit" onClick={this.onSubmit}>
-          <i className="fas fa-search" />
+          <FontAwesomeIcon icon="search" />
           <span className="submit-text mobile-hidden">Search</span>
         </button>
       </div>

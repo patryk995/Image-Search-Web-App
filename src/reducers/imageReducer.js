@@ -10,6 +10,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         images: action.payload,
+        keyword: action.keyword,
         loading: false
       };
     case IMAGES_LOADING:

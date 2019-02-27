@@ -6,15 +6,22 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/header/Search";
 import ImagesGrid from "./components/ImagesGrid";
+import * as regularShit from "@fortawesome/free-regular-svg-icons";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSpinner,
+  faSearch,
+  faImages,
+  faSadCry
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCheckSquare, faSpinner);
+library.add(faSpinner, faSearch, faImages, faSadCry);
 
 class App extends Component {
   componentDidMount() {}
   render() {
+    console.log(regularShit);
     return (
       <Provider store={store}>
         <div className="App">
@@ -26,7 +33,7 @@ class App extends Component {
               </div>
             </div>
           </header>
-          <div className="container">
+          <div className="App-body container">
             <ImagesGrid />
           </div>
         </div>

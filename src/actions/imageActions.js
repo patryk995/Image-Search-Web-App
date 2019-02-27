@@ -16,7 +16,8 @@ export const getImages = (keyword, page, per_page) => dispatch => {
     .then(json =>
       dispatch({
         type: GET_IMAGES,
-        payload: json
+        payload: json,
+        keyword: keyword
       })
     );
 };

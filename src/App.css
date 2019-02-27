@@ -6,10 +6,22 @@ body {
   max-width: 95%;
   margin: 0 auto;
 }
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.App-body {
+  flex: 1;
+  display: flex;
+}
 .App-header {
-  color: #fff;
-  background: #000;
+  color: #000;
+  background: #fff;
   padding: 40px 0;
+}
+.m-auto {
+  margin: auto;
 }
 .flex-header {
   display: flex;
@@ -25,7 +37,7 @@ body {
   flex-direction: column;
 }
 #searchInput {
-  color: #fff;
+  color: #000;
   background: transparent;
   max-width: 100%;
   border: none;
@@ -52,4 +64,7 @@ body {
 .py-5 {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+.opacity-half {
+  opacity: 0.5;
 }
