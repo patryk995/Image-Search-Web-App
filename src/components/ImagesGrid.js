@@ -10,20 +10,25 @@ export class ImagesGrid extends Component {
     if (this.props.image.loading) {
       return <h3 className="text-center">Loading...</h3>;
     }
+
     if (this.props.image.images.results) {
       const images = this.props.image.images.results;
-      return (
-        <div className="images-grid-container">
-          <div className="images-top-line">
-            <p>{this.props.image.images.total} images found.</p>
+      if (this.props.image.images.total === 0) {
+        return <p>No images Found.</p>;
+      } else {
+        return (
+          <div className="images-grid-container">
+            <div className="images-top-line">
+              <p>{this.props.image.images.total} images found.</p>
+            </div>
+            <div className="images-grid">
+              {images.map(image => (
+                <Image key={image.id} image={image} />
+              ))}
+            </div>
           </div>
-          <div className="images-grid">
-            {images.map(image => (
-              <Image key={image.id} image={image} />
-            ))}
-          </div>
-        </div>
-      );
+        );
+      }
     } else {
       return <p>Empty List</p>;
     }

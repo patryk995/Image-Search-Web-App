@@ -14,6 +14,11 @@ export class Search extends Component {
   onChange = e => {
     this.setState({ keyword: e.target.value });
   };
+  _handleKeyPress = e => {
+    if (e.key === "Enter") {
+      this.onSubmit();
+    }
+  };
   render() {
     return (
       <div className="search-container">
@@ -24,6 +29,7 @@ export class Search extends Component {
           placeholder="Search Image..."
           value={this.state.keyword}
           onChange={this.onChange}
+          onKeyPress={this._handleKeyPress}
         />
         <button id="searchSubmit" onClick={this.onSubmit}>
           Search
