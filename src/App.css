@@ -46,3 +46,10 @@ body {
 .text-center {
   text-align: center;
 }
+.submit-text {
+  padding-left: 10px;
+}
+.py-5 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

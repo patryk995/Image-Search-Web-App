@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Image from "./Image";
+import LoadingSpinner from "./LoadingSpinner";
 export class ImagesGrid extends Component {
   componentWillUpdate() {
     console.log(this.props.image.images.results);
   }
   render() {
     if (this.props.image.loading) {
-      return <h3 className="text-center">Loading...</h3>;
+      return <LoadingSpinner />;
     }
 
     if (this.props.image.images.results) {
@@ -30,7 +31,12 @@ export class ImagesGrid extends Component {
         );
       }
     } else {
-      return <p>Empty List</p>;
+      return (
+        <div>
+          <i class="far fa-images" /> <br />
+          <p>Empty List</p>
+        </div>
+      );
     }
   }
 }
