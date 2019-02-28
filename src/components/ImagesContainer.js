@@ -11,7 +11,7 @@ export class ImagesContainer extends Component {
     if (this.props.image.loading) {
       return <LoadingSpinner />;
     }
-    if (this.props.image.isResponse) {
+    if (this.props.image.isFirstLoad) {
       return <ImagesGrid />;
     }
 

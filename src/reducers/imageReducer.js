@@ -1,10 +1,15 @@
-import { GET_IMAGES, IMAGES_LOADING, GET_MORE_IMAGES } from "../actions/types";
+import {
+  GET_IMAGES,
+  IMAGES_LOADING,
+  GET_MORE_IMAGES,
+  SAVE_IMAGE_LIST
+} from "../actions/types";
 const initialState = {
-  images: {},
   imagesList: [],
   loading: false,
-  isResponse: false,
-  page: 1
+  isFirstLoad: false,
+  page: 1,
+  savedSearchList: []
 };
 
 export default function(state = initialState, action) {
@@ -12,13 +17,13 @@ export default function(state = initialState, action) {
     case GET_IMAGES:
       return {
         ...state,
-        images: action.payload,
         keyword: action.keyword,
         totalPages: action.payload.total_pages,
+        totalImages: action.payload.total,
         page: action.last_page,
         imagesList: action.payload.results,
         loading: false,
-        isResponse: true
+        isFirstLoad: true
       };
     case GET_MORE_IMAGES:
       return {
@@ -31,6 +36,17 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+    case SAVE_IMAGE_LIST:
+      return {
+        ...state,
+        savedSearchList: state.savedSearchList.concat({
+          savedKeyword: state.keyword,
+          savedTotalImages: state.totalImages,
+          savedTotalPages: state.totalPages,
+          savedImagesList: state.imagesList.slice(0, 30)
+        })
+      };
+
     default:
       return state;
   }

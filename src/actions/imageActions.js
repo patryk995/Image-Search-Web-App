@@ -1,4 +1,9 @@
-import { GET_IMAGES, IMAGES_LOADING, GET_MORE_IMAGES } from "./types";
+import {
+  GET_IMAGES,
+  IMAGES_LOADING,
+  GET_MORE_IMAGES,
+  SAVE_IMAGE_LIST
+} from "./types";
 import Unsplash from "unsplash-js";
 
 const toJson = require("unsplash-js").toJson;
@@ -40,5 +45,11 @@ export const getMoreImages = (keyword, page) => dispatch => {
 export const setImagesLoading = () => {
   return {
     type: IMAGES_LOADING
+  };
+};
+
+export const saveSearch = () => {
+  return {
+    type: SAVE_IMAGE_LIST
   };
 };

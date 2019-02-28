@@ -5,6 +5,7 @@ import "normalize.css";
 import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/header/Search";
+import SavedSearchList from "./components/SavedSearchList";
 import ImagesContainer from "./components/ImagesContainer";
 import * as regularShit from "@fortawesome/free-regular-svg-icons";
 
@@ -13,10 +14,11 @@ import {
   faSpinner,
   faSearch,
   faImages,
-  faSadCry
+  faSadCry,
+  faSave
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSpinner, faSearch, faImages, faSadCry);
+library.add(faSpinner, faSearch, faImages, faSadCry, faSave);
 
 class App extends Component {
   componentDidMount() {}
@@ -34,6 +36,7 @@ class App extends Component {
             </div>
           </header>
           <div className="App-body container">
+            <SavedSearchList />
             <ImagesContainer />
           </div>
         </div>

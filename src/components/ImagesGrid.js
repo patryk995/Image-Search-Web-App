@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getMoreImages } from "../actions/imageActions";
-
 import Image from "./Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "./LoadingSpinner";
+import SaveSearchBtn from "./SaveSearchBtn";
 
 export class ImagesGrid extends Component {
   state = {
@@ -30,9 +30,9 @@ export class ImagesGrid extends Component {
   render() {
     const images = this.props.image.imagesList;
 
-    if (this.props.image.images.total === 0) {
+    if (this.props.image.totalImages === 0) {
       return (
-        <div className="py-5 text-center opacity-half m-auto">
+        <div className="py-5 text-center opacity-half m-auto red">
           <FontAwesomeIcon icon="sad-cry" size="3x" />
           <p>
             No images found.
@@ -44,12 +44,13 @@ export class ImagesGrid extends Component {
     }
 
     return (
-      <div className="images-grid-container">
+      <div className="images-container">
         <div className="images-top-line">
           <p>
             On keyword <b>{this.props.image.keyword}</b>{" "}
-            {this.props.image.images.total} images found.
+            {this.props.image.totalImages} images found.
           </p>
+          <SaveSearchBtn />
         </div>
         <InfiniteScroll
           dataLength={images.length}

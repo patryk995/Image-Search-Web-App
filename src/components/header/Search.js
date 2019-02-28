@@ -32,9 +32,9 @@ export class Search extends Component {
           onChange={this.onChange}
           onKeyPress={this.handleKeyPress}
         />
-        <button id="searchSubmit" onClick={this.onSubmit}>
+        <button id="searchSubmit" className="btn" onClick={this.onSubmit}>
           <FontAwesomeIcon icon="search" />
-          <span className="submit-text mobile-hidden">Search</span>
+          <span className="btn-text mobile-hidden">Search</span>
         </button>
       </div>
     );
