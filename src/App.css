@@ -70,11 +70,22 @@ body {
   opacity: 0.5;
 }
 .images-grid {
-  column-count: 6;
-  column-gap: 0px;
+  column-count: 5;
+  column-gap: 5px;
   line-height: 0;
 }
 .single-photo {
-  width: 100%;
+  width: auto;
   height: auto;
+  max-height: 200px;
+  /* margin-bottom: 5px; */
+}
+.images-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.image-flex-container {
+  margin: auto;
+  padding: 10px;
 }

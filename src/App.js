@@ -5,7 +5,7 @@ import "normalize.css";
 import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/header/Search";
-import ImagesGrid from "./components/ImagesGrid";
+import ImagesContainer from "./components/ImagesContainer";
 import * as regularShit from "@fortawesome/free-regular-svg-icons";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -34,7 +34,7 @@ class App extends Component {
             </div>
           </header>
           <div className="App-body container">
-            <ImagesGrid />
+            <ImagesContainer />
           </div>
         </div>
       </Provider>

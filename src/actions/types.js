@@ -1,2 +1,3 @@
 export const GET_IMAGES = "GET_IMAGES";
 export const IMAGES_LOADING = "IMAGES_LOADING";
+export const GET_MORE_IMAGES = "GET_MORE_IMAGES";
