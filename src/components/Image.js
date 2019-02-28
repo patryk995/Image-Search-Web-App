@@ -5,7 +5,7 @@ export default function Image({ image }) {
     <div className="image-flex-container">
       <img
         className="single-photo"
-        src={image.urls.thumb}
+        src={image.urls.raw + "&w=196&h=225"}
         alt={image.description}
       />
     </div>
