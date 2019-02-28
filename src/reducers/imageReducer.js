@@ -37,15 +37,20 @@ export default function(state = initialState, action) {
         loading: true
       };
     case SAVE_IMAGE_LIST:
-      return {
-        ...state,
-        savedSearchList: state.savedSearchList.concat({
-          savedKeyword: state.keyword,
-          savedTotalImages: state.totalImages,
-          savedTotalPages: state.totalPages,
-          savedImagesList: state.imagesList.slice(0, 30)
-        })
-      };
+      if (
+        state.savedSearchList.filter(e => e.savedKeyword === state.keyword)
+          .length === 0
+      ) {
+        return {
+          ...state,
+          savedSearchList: state.savedSearchList.concat({
+            savedKeyword: state.keyword,
+            savedTotalImages: state.totalImages,
+            savedTotalPages: state.totalPages,
+            savedImagesList: state.imagesList.slice(0, 30)
+          })
+        };
+      } else return state;
 
     default:
       return state;

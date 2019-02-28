@@ -36,8 +36,8 @@ class App extends Component {
             </div>
           </header>
           <div className="App-body container">
-            <SavedSearchList />
             <ImagesContainer />
+            <SavedSearchList />
           </div>
         </div>
       </Provider>

@@ -45,8 +45,8 @@ export class ImagesGrid extends Component {
 
     return (
       <div className="images-container">
-        <div className="images-top-line">
-          <p>
+        <div className="images-top-line py-5">
+          <p className="my-auto">
             On keyword <b>{this.props.image.keyword}</b>{" "}
             {this.props.image.totalImages} images found.
           </p>

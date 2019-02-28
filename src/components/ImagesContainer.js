@@ -8,17 +8,18 @@ import ImagesGrid from "./ImagesGrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export class ImagesContainer extends Component {
   render() {
-    if (this.props.image.loading) {
-      return <LoadingSpinner />;
-    }
-    if (this.props.image.isFirstLoad) {
-      return <ImagesGrid />;
-    }
-
     return (
-      <div className="py-5 text-center opacity-half m-auto">
-        <FontAwesomeIcon icon="images" size="3x" />
-        <p>Empty Images List</p>
+      <div className="images-container">
+        {this.props.image.loading ? (
+          <LoadingSpinner />
+        ) : this.props.image.isFirstLoad ? (
+          <ImagesGrid />
+        ) : (
+          <div className="py-5 text-center opacity-half m-auto">
+            <FontAwesomeIcon icon="images" size="3x" />
+            <p>Empty Images List</p>
+          </div>
+        )}
       </div>
     );
   }
