@@ -2,7 +2,8 @@ import {
   GET_IMAGES,
   IMAGES_LOADING,
   GET_MORE_IMAGES,
-  SAVE_IMAGE_LIST
+  SAVE_IMAGE_LIST,
+  DELETE_SAVED_SEARCH
 } from "./types";
 import Unsplash from "unsplash-js";
 
@@ -52,4 +53,10 @@ export const saveSearch = () => {
   return {
     type: SAVE_IMAGE_LIST
   };
+};
+export const deleteSavedSearch = keyword => dispatch => {
+  dispatch({
+    type: DELETE_SAVED_SEARCH,
+    keyword: keyword
+  });
 };

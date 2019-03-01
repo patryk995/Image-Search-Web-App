@@ -15,10 +15,11 @@ import {
   faSearch,
   faImages,
   faSadCry,
-  faSave
+  faSave,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSpinner, faSearch, faImages, faSadCry, faSave);
+library.add(faSpinner, faSearch, faImages, faSadCry, faSave, faTimes);
 
 class App extends Component {
   componentDidMount() {}
@@ -35,7 +36,7 @@ class App extends Component {
               </div>
             </div>
           </header>
-          <div className="App-body container">
+          <div className="App-body container py-5">
             <ImagesContainer />
             <SavedSearchList />
           </div>

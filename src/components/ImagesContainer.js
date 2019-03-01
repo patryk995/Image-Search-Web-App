@@ -10,6 +10,7 @@ export class ImagesContainer extends Component {
   render() {
     return (
       <div className="images-container">
+        <h2 className="text-center title">Images</h2>
         {this.props.image.loading ? (
           <LoadingSpinner />
         ) : this.props.image.isFirstLoad ? (

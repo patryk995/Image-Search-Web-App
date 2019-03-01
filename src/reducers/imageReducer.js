@@ -2,7 +2,8 @@ import {
   GET_IMAGES,
   IMAGES_LOADING,
   GET_MORE_IMAGES,
-  SAVE_IMAGE_LIST
+  SAVE_IMAGE_LIST,
+  DELETE_SAVED_SEARCH
 } from "../actions/types";
 const initialState = {
   imagesList: [],
@@ -51,7 +52,13 @@ export default function(state = initialState, action) {
           })
         };
       } else return state;
-
+    case DELETE_SAVED_SEARCH:
+      return {
+        ...state,
+        savedSearchList: state.savedSearchList.filter(
+          search => search.savedKeyword !== action.keyword
+        )
+      };
     default:
       return state;
   }
