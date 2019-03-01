@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
-import { deleteSavedSearch, loadSavedSearch } from "../actions/imageActions";
+import { deleteSavedSearch, loadSavedSearch } from "../../actions/imageActions";
 import PropTypes from "prop-types";
 
 export class SavedSearchItem extends Component {

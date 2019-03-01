@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getMoreImages } from "../actions/imageActions";
+import { getMoreImages } from "./../../actions/imageActions";
 import Image from "./Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 import SaveSearchBtn from "./SaveSearchBtn";
 
 export class ImagesGrid extends Component {

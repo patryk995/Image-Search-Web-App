@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { saveSearch } from "../actions/imageActions";
+import { saveSearch } from "../../actions/imageActions";
 
 export class SaveSearchBtn extends Component {
   saveSearch = () => {

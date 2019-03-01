@@ -5,8 +5,8 @@ import "normalize.css";
 import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/header/Search";
-import SavedSearchList from "./components/SavedSearchList";
-import ImagesContainer from "./components/ImagesContainer";
+import SavedSearchList from "./components/savedSearch/SavedSearchList";
+import ImagesContainer from "./components/images/ImagesContainer";
 import * as regularShit from "@fortawesome/free-regular-svg-icons";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -24,7 +24,6 @@ library.add(faSpinner, faSearch, faImages, faSadCry, faSave, faTimes);
 class App extends Component {
   componentDidMount() {}
   render() {
-    console.log(regularShit);
     return (
       <Provider store={store}>
         <div className="App">
