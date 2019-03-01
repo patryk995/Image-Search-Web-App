@@ -16,16 +16,23 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_IMAGES:
-      return {
-        ...state,
-        keyword: action.keyword,
-        totalPages: action.payload.total_pages,
-        totalImages: action.payload.total,
-        page: action.last_page,
-        imagesList: action.payload.results,
-        loading: false,
-        isFirstLoad: true
-      };
+      if (action.keyword !== state.keyword) {
+        return {
+          ...state,
+          keyword: action.keyword,
+          totalPages: action.total_pages,
+          totalImages: action.total,
+          page: action.last_page,
+          imagesList: action.images_list,
+          loading: false,
+          isFirstLoad: true
+        };
+      } else {
+        return {
+          ...state
+        };
+      }
+
     case GET_MORE_IMAGES:
       return {
         ...state,

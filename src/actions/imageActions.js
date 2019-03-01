@@ -24,7 +24,10 @@ export const getImages = (keyword, page) => dispatch => {
         type: GET_IMAGES,
         payload: json,
         keyword: keyword,
-        last_page: page
+        last_page: page,
+        total_pages: json.total_pages,
+        total: json.total,
+        images_list: json.results
       })
     );
 };
@@ -58,5 +61,17 @@ export const deleteSavedSearch = keyword => dispatch => {
   dispatch({
     type: DELETE_SAVED_SEARCH,
     keyword: keyword
+  });
+};
+
+export const loadSavedSearch = searchItem => dispatch => {
+  dispatch(setImagesLoading());
+  dispatch({
+    type: GET_IMAGES,
+    keyword: searchItem.savedKeyword,
+    last_page: 1,
+    total_pages: searchItem.savedTotalPages,
+    total: searchItem.savedTotalImages,
+    images_list: searchItem.savedImagesList
   });
 };

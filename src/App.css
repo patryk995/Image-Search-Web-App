@@ -118,6 +118,12 @@ button {
   color: #fff;
   margin-left: 25px;
 }
+.load-saved-search {
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+}
 /* .saved-search-inner-container:before {
   content: "";
   display: block;
