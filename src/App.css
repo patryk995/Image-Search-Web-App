@@ -178,3 +178,85 @@ button {
   box-sizing: border-box;
   text-align: left;
 }
+.modal-fixed-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: #00000087;
+}
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.close-modal:hover {
+  opacity: 1;
+}
+.modal-inner-container {
+  margin: auto;
+  position: relative;
+  height: auto;
+}
+.modal-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100vh;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+.modal-description-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.modal-description-inner-container {
+  position: relative;
+  padding: 20px;
+}
+.modal-description-inner-container:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 140%;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(#0000, #000000bf);
+}
+.modal-arrow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+}
+.modal-arrow.left-arrow {
+  left: 20px;
+}
+.modal-arrow.right-arrow {
+  right: 20px;
+}
+.modal-arrow > button {
+  margin: auto 0;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.modal-arrow > button:hover {
+  opacity: 1;
+}

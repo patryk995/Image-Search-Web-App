@@ -3,14 +3,19 @@ import {
   IMAGES_LOADING,
   GET_MORE_IMAGES,
   SAVE_IMAGE_LIST,
-  DELETE_SAVED_SEARCH
+  DELETE_SAVED_SEARCH,
+  OPEN_IMAGE_MODAL,
+  CLOSE_IMAGE_MODAL,
+  NEXT_MODAL_IMAGE
 } from "../actions/types";
 const initialState = {
   imagesList: [],
   loading: false,
   isFirstLoad: false,
   page: 1,
-  savedSearchList: []
+  savedSearchList: [],
+  isModalVisible: false,
+  modalCurrentImgIndex: null
 };
 
 export default function(state = initialState, action) {
@@ -65,6 +70,24 @@ export default function(state = initialState, action) {
         savedSearchList: state.savedSearchList.filter(
           search => search.savedKeyword !== action.keyword
         )
+      };
+    case OPEN_IMAGE_MODAL:
+      return {
+        ...state,
+        isModalVisible: true,
+        modalCurrentImgIndex: state.imagesList.findIndex(image => {
+          return image.id === action.imageId;
+        })
+      };
+    case CLOSE_IMAGE_MODAL:
+      return {
+        ...state,
+        isModalVisible: false
+      };
+    case NEXT_MODAL_IMAGE:
+      return {
+        ...state,
+        modalCurrentImgIndex: action.imageIndex
       };
     default:
       return state;

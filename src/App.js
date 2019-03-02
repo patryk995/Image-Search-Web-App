@@ -7,7 +7,6 @@ import store from "./store";
 import Search from "./components/header/Search";
 import SavedSearchList from "./components/savedSearch/SavedSearchList";
 import ImagesContainer from "./components/images/ImagesContainer";
-import * as regularShit from "@fortawesome/free-regular-svg-icons";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -16,10 +15,21 @@ import {
   faImages,
   faSadCry,
   faSave,
-  faTimes
+  faTimes,
+  faAngleRight,
+  faAngleLeft
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSpinner, faSearch, faImages, faSadCry, faSave, faTimes);
+library.add(
+  faSpinner,
+  faSearch,
+  faImages,
+  faSadCry,
+  faSave,
+  faTimes,
+  faAngleRight,
+  faAngleLeft
+);
 
 class App extends Component {
   componentDidMount() {}

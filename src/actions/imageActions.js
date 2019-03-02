@@ -3,7 +3,10 @@ import {
   IMAGES_LOADING,
   GET_MORE_IMAGES,
   SAVE_IMAGE_LIST,
-  DELETE_SAVED_SEARCH
+  DELETE_SAVED_SEARCH,
+  OPEN_IMAGE_MODAL,
+  CLOSE_IMAGE_MODAL,
+  NEXT_MODAL_IMAGE
 } from "./types";
 import Unsplash from "unsplash-js";
 
@@ -73,5 +76,25 @@ export const loadSavedSearch = searchItem => dispatch => {
     total_pages: searchItem.savedTotalPages,
     total: searchItem.savedTotalImages,
     images_list: searchItem.savedImagesList
+  });
+};
+
+export const openImageModal = imageId => dispatch => {
+  dispatch({
+    type: OPEN_IMAGE_MODAL,
+    imageId: imageId
+  });
+};
+
+export const closeImageModal = () => {
+  return {
+    type: CLOSE_IMAGE_MODAL
+  };
+};
+
+export const nextModalImage = imageIndex => dispatch => {
+  dispatch({
+    type: NEXT_MODAL_IMAGE,
+    imageIndex: imageIndex
   });
 };

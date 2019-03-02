@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getImages } from "../../actions/imageActions";
 import LoadingSpinner from "../LoadingSpinner";
-
+import ImageModal from "./ImageModal";
 import ImagesGrid from "./ImagesGrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export class ImagesContainer extends Component {
@@ -21,6 +21,7 @@ export class ImagesContainer extends Component {
             <p>Empty Images List</p>
           </div>
         )}
+        {this.props.image.isModalVisible && <ImageModal />}
       </div>
     );
   }
