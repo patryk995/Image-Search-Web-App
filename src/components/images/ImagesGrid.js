@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -6,66 +6,43 @@ import { getMoreImages } from "./../../actions/imageActions";
 import Image from "./Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "../LoadingSpinner";
+export function ImagesGrid(props) {
+  const images = props.image.imagesList;
 
-export class ImagesGrid extends Component {
-  state = {
-    images: [],
-    imagesTemp: []
-  };
-  componentDidMount() {}
-  fetchImages = () => {
-    const nextPage = this.props.image.page + 1;
-    const keyword = this.props.image.keyword;
-    this.props.getMoreImages(keyword, nextPage);
-  };
-  hasMore = () => {
-    // If last page don't load more
-    if (this.props.image.totalPages === this.props.image.page) {
-      return false;
-    }
-    // If not last page load more
-    return true;
-  };
-  render() {
-    const images = this.props.image.imagesList;
-
-    if (this.props.image.totalImages === 0) {
-      return (
-        <div className="py-5 text-center opacity-half m-auto red">
-          <FontAwesomeIcon icon="sad-cry" size="3x" />
-          <p>
-            On keyword <b>{this.props.image.keyword}</b> No images found.
-            <br />
-            Try again!
-          </p>
-        </div>
-      );
-    }
-
+  if (props.image.totalImages === 0) {
     return (
-      <div className="images-container">
-        {/* <div className="images-top-line py-5">
-          <p className="my-auto">
-            On keyword <b>{this.props.image.keyword}</b>{" "}
-            {this.props.image.totalImages} images found.
-          </p>
-        </div> */}
-        <InfiniteScroll
-          dataLength={images.length}
-          next={this.fetchImages}
-          hasMore={this.hasMore()}
-          style={{ overflowY: "hidden" }}
-          loader={<LoadingSpinner />}
-        >
-          <div className="images-flex">
-            {images.map(image => (
-              <Image key={image.id} image={image} />
-            ))}
-          </div>
-        </InfiniteScroll>
+      <div className="py-5 text-center opacity-half m-auto red">
+        <FontAwesomeIcon icon="sad-cry" size="3x" />
+        <p>
+          On keyword <b>{props.image.keyword}</b> No images found.
+          <br />
+          Try another keyword!
+        </p>
       </div>
     );
   }
+
+  return (
+    <div className="images-container py-5">
+      <InfiniteScroll
+        dataLength={images.length}
+        next={() => {
+          const nextPage = props.image.page + 1;
+          const keyword = props.image.keyword;
+          props.getMoreImages(keyword, nextPage);
+        }}
+        hasMore={props.image.totalPages === props.image.page ? false : true}
+        style={{ overflowY: "hidden" }}
+        loader={<LoadingSpinner />}
+      >
+        <div className="images-flex">
+          {images.map(image => (
+            <Image key={image.id} image={image} />
+          ))}
+        </div>
+      </InfiniteScroll>
+    </div>
+  );
 }
 ImagesGrid.propTypes = {
   image: PropTypes.object.isRequired,

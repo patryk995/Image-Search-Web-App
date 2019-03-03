@@ -6,7 +6,8 @@ import {
   DELETE_SAVED_SEARCH,
   OPEN_IMAGE_MODAL,
   CLOSE_IMAGE_MODAL,
-  NEXT_MODAL_IMAGE
+  NEXT_MODAL_IMAGE,
+  TOGGLE_MOB_SAVED_POPUP
 } from "../actions/types";
 const initialState = {
   imagesList: [],
@@ -15,7 +16,8 @@ const initialState = {
   page: 1,
   savedSearchList: [],
   isModalVisible: false,
-  modalCurrentImgIndex: null
+  modalCurrentImgIndex: null,
+  isMobSavedVisible: false
 };
 
 export default function(state = initialState, action) {
@@ -89,6 +91,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         modalCurrentImgIndex: action.imageIndex
+      };
+    case TOGGLE_MOB_SAVED_POPUP:
+      return {
+        ...state,
+        isMobSavedVisible: !state.isMobSavedVisible
       };
     default:
       return state;

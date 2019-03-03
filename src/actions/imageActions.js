@@ -6,7 +6,8 @@ import {
   DELETE_SAVED_SEARCH,
   OPEN_IMAGE_MODAL,
   CLOSE_IMAGE_MODAL,
-  NEXT_MODAL_IMAGE
+  NEXT_MODAL_IMAGE,
+  TOGGLE_MOB_SAVED_POPUP
 } from "./types";
 import Unsplash from "unsplash-js";
 
@@ -97,4 +98,10 @@ export const nextModalImage = imageIndex => dispatch => {
     type: NEXT_MODAL_IMAGE,
     imageIndex: imageIndex
   });
+};
+
+export const toggleMobSavedPopup = () => {
+  return {
+    type: TOGGLE_MOB_SAVED_POPUP
+  };
 };

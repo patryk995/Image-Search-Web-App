@@ -7,7 +7,6 @@ import store from "./store";
 import Search from "./components/header/Search";
 import SavedSearchList from "./components/savedSearch/SavedSearchList";
 import ImagesContainer from "./components/images/ImagesContainer";
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faSpinner,
@@ -32,7 +31,6 @@ library.add(
 );
 
 class App extends Component {
-  componentDidMount() {}
   render() {
     return (
       <Provider store={store}>
@@ -46,8 +44,8 @@ class App extends Component {
             </div>
           </header>
           <div className="App-body container py-5">
-            <ImagesContainer />
             <SavedSearchList />
+            <ImagesContainer />
           </div>
         </div>
       </Provider>

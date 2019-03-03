@@ -10,7 +10,9 @@ export class Search extends Component {
   };
 
   onSubmit = () => {
-    this.props.getImages(this.state.keyword, 1);
+    if (this.state.keyword !== "") {
+      this.props.getImages(this.state.keyword, 1);
+    }
   };
   onChange = e => {
     this.setState({ keyword: e.target.value });

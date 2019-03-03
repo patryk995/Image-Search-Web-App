@@ -1,15 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SavedSearchItem from "./SavedSearchItem";
 import SaveSearchBtn from "./SaveSearchBtn";
-
-export class SavedSearchList extends Component {
-  render() {
-    const savedSearch = this.props.image.savedSearchList;
-    return (
-      <div className="saved-search-container">
+import { toggleMobSavedPopup } from "../../actions/imageActions";
+import MobileBottomLine from "./MobileBottomLine";
+export function SavedSearchList(props) {
+  const savedSearch = props.image.savedSearchList;
+  return (
+    <>
+      <div
+        className={
+          "saved-search-container" +
+          (props.image.isMobSavedVisible ? " active" : " ")
+        }
+      >
         <div className="saved-search-inner-container">
+          <button
+            className="close-mob-saved"
+            onClick={() => {
+              props.toggleMobSavedPopup();
+            }}
+          >
+            <FontAwesomeIcon icon="times" size="2x" />
+          </button>
           <h2 className="text-center title">Saved Search</h2>
           {savedSearch.length > 0 ? (
             <ul className="saved-search-list">
@@ -18,24 +32,26 @@ export class SavedSearchList extends Component {
               ))}
             </ul>
           ) : (
-            <div className="py-5 text-center opacity-half m-auto">
-              <FontAwesomeIcon icon="save" size="3x" />
+            <div className="py-5 text-center opacity-half">
+              {/* <FontAwesomeIcon icon="save" size="3x" /> */}
 
               <p>Empty Saved Search List</p>
             </div>
           )}
-          {this.props.image.isFirstLoad && this.props.image.totalImages !== 0 && (
-            <div className="mt-auto">
-              <SaveSearchBtn />
-            </div>
+          {props.image.isFirstLoad && props.image.totalImages !== 0 && (
+            <SaveSearchBtn />
           )}
         </div>
       </div>
-    );
-  }
+      <MobileBottomLine />
+    </>
+  );
 }
 
 const mapStateToProps = state => ({
   image: state.image
 });
-export default connect(mapStateToProps)(SavedSearchList);
+export default connect(
+  mapStateToProps,
+  { toggleMobSavedPopup }
+)(SavedSearchList);
