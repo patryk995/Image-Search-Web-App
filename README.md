@@ -43,7 +43,7 @@ Components contains:
 
 ## Short Description
 
-Logic and states are done and saved in Redux, so all components are functional except Search.js. Whole App design is based on css flex without fall-backs for older browsers support.
+Logic and states are done and saved in Redux, so all components are functional except Search.js. Whole App design is based on css flex without fall-backs for older browsers support. Infinite scroll is used - after user submit keyword, first 30 images are loaded, when he scroll to the bottom of page next 30 images are loaded.
 
 ### Usage Instructions
 
@@ -51,3 +51,8 @@ Logic and states are done and saved in Redux, so all components are functional e
 - If search is successfull and you are on desktop device you can save it by pressing Save Search in rigth bottom corner of page. If you on mobile device you should press Open Saved Search button on the bottom of page and then Save Search.
 - To delete saved search press X icon alongside keyword
 - To open full size image press on the image, then image modal will appear.
+
+## TODO
+
+- Load more images when image modal hits last one
+- Load images depending on device screen size
