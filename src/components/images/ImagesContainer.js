@@ -10,7 +10,15 @@ export class ImagesContainer extends Component {
   render() {
     return (
       <div className="images-container">
-        <h2 className="text-center title">Images</h2>
+        <div className="title images-title">
+          <h2>Images</h2>
+          {this.props.image.isFirstLoad && (
+            <p className="images-count">
+              On keyword <b>{this.props.image.keyword}</b>{" "}
+              {this.props.image.totalImages} images found.
+            </p>
+          )}
+        </div>
         {this.props.image.loading ? (
           <LoadingSpinner />
         ) : this.props.image.isFirstLoad ? (

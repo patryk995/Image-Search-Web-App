@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SavedSearchItem from "./SavedSearchItem";
+import SaveSearchBtn from "./SaveSearchBtn";
+
 export class SavedSearchList extends Component {
   render() {
     const savedSearch = this.props.image.savedSearchList;
@@ -20,6 +22,11 @@ export class SavedSearchList extends Component {
               <FontAwesomeIcon icon="save" size="3x" />
 
               <p>Empty Saved Search List</p>
+            </div>
+          )}
+          {this.props.image.isFirstLoad && this.props.image.totalImages !== 0 && (
+            <div className="mt-auto">
+              <SaveSearchBtn />
             </div>
           )}
         </div>

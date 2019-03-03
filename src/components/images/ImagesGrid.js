@@ -6,7 +6,6 @@ import { getMoreImages } from "./../../actions/imageActions";
 import Image from "./Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "../LoadingSpinner";
-import SaveSearchBtn from "./SaveSearchBtn";
 
 export class ImagesGrid extends Component {
   state = {
@@ -35,7 +34,7 @@ export class ImagesGrid extends Component {
         <div className="py-5 text-center opacity-half m-auto red">
           <FontAwesomeIcon icon="sad-cry" size="3x" />
           <p>
-            No images found.
+            On keyword <b>{this.props.image.keyword}</b> No images found.
             <br />
             Try again!
           </p>
@@ -45,13 +44,12 @@ export class ImagesGrid extends Component {
 
     return (
       <div className="images-container">
-        <div className="images-top-line py-5">
+        {/* <div className="images-top-line py-5">
           <p className="my-auto">
             On keyword <b>{this.props.image.keyword}</b>{" "}
             {this.props.image.totalImages} images found.
           </p>
-          <SaveSearchBtn />
-        </div>
+        </div> */}
         <InfiniteScroll
           dataLength={images.length}
           next={this.fetchImages}

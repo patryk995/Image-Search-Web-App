@@ -9,12 +9,10 @@ export class SaveSearchBtn extends Component {
   };
   render() {
     return (
-      <div>
-        <button className="btn" onClick={this.saveSearch}>
-          <FontAwesomeIcon icon="save" />
-          <span className="btn-text">Save Search</span>
-        </button>
-      </div>
+      <button className="btn" onClick={this.saveSearch}>
+        <FontAwesomeIcon icon="save" />
+        <span className="btn-text">Save Search</span>
+      </button>
     );
   }
 }

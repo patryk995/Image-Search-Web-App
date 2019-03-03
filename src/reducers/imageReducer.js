@@ -34,7 +34,8 @@ export default function(state = initialState, action) {
         };
       } else {
         return {
-          ...state
+          ...state,
+          loading: false
         };
       }
 
